@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte de React</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /*
+  *
+  * CONSIGNES :
+  * Zut ! Le mauvais composant BrokenComponent est affiché !
+  * Il faut afficher le composant App à la place du composant BrokenComponent
+  *
+  * - Localiser l'instruction responsable de l'affichage de BrokenComponent
+  * - Modifier cette instruction de manière à ce qu'elle affiche le composant App à la place.
+  *
+  * Ressources :
+  * Plus d'informations sur la méthode render : https://fr.reactjs.org/docs/react-dom.html
+  *
+  *
+  * */
+
+  function App() {
+    return (
+      <div>
+        <h1>Une application saine et variée</h1>
+        <p>Ici, on est beaucoup mieux lotis !</p>
+        <p>Si ce composant s'affiche, bravo, vous avez réussi l'exercice !</p>
+      </div>
+    )
+  }
+
+  /**
+   * Oh non, ce composant est cassé, il ne faudrait pas l'utiliser.
+   */
+  function BrokenComponent() {
+    return (
+      <div style={{color: "red"}}>
+        <p>
+          Je suis cassé, bouhouhou
+        </p>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <BrokenComponent/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

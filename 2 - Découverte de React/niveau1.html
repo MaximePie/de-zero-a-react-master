@@ -11,53 +11,42 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <!-- babel => compilation du JSX -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    /* Ecrire le style ici */
+  </style>
 </head>
 
 <body>
 <div id="root"></div>
 <script type="text/babel">
 
+  /*
+  *
+  * CONSIGNES :
+  *
+  * - Placez-vous au niveau de l'instruction return de la fonction App.
+  * - Localisez la balise h1 qui contient le texte "XDGDG"
+  * - Modifiez le texte en "Premier titre en React",
+  * - Localisez la balise p qui contient le texte "changez-moi"
+  * - En dessous de cette balise p, créer un lien <a> qui redirige sur la page https://fr.reactjs.org/
+  *
+  * - Créer une règle de style permettant de modifier la couleur de .App en violet.
+  *
+  * Ressources :
+  * - Plus d'informations sur la structure JSX : https://fr.reactjs.org/docs/introducing-jsx.html
+  * */
+
   function App() {
+
+    // Ici on écrit en Javascript
+
     return (
-      <div>
+      <div className="App">
+        {/* A partir de là, on écrit en JSX */}
         {/* Ceci est un commentaire, c'est comme ça qu'on peut l'écrire en JSX */}
-
-        {/* Vous pouvez écrire le code dans cette DIV */}
-        <div>
-          <h1>XDGDG</h1>
-          <p>Changez-moi !</p>
-        </div>
-
-
-        {/* Ce sont les consignes, ne pas toucher */}
-        <div className="Exercice">
-          <h2>Exercice 1</h2>
-          <div className="Consignes">
-            <p>
-              Placez-vous dans la fonction <code>App</code>
-              Au niveau de son instruction <code>return</code>
-            </p>
-            <p>
-              Localisez la balise <code>h1</code> qui contient le texte "XDGDG", et modifiez le texte en "Premier titre en React"
-            </p>
-            <p>
-              Localisez la balise <code>p</code> qui contient le texte "Changez-moi", et modifiez le texte en
-              "Premier paragraphe en React"
-            </p>
-            <p>
-              En dessous de votre balise <code>p</code>, créez un lien <code>a</code> qui vous emmènera sur
-              cette page : https://fr.reactjs.org/
-            </p>
-            <div className="Note">
-              <p>
-                Plus d'informations sur la syntaxe JSX
-                <a href="https://fr.reactjs.org/docs/introducing-jsx.html">
-                  {` ici`}
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* Écrire le code dans cette DIV */}
+        <h1>XDGDG</h1>
+        <p>Changez-moi !</p>
       </div>
     )
   }

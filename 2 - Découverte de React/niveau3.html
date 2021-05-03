@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte de React</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /*
+  *
+  * CONSIGNES :
+  *
+  * - Créez votre tout premier composant que vous pourrez appeler Application, en vous inspirant des exercices précédents.
+  * - Dans le composant Application, afficher un h1 et un p avec les textes de vos choix.
+  * - Modifier l'appel de la fonction ReactDOM.render de manière à générer ce composant Application
+  *
+  * Ressources :
+  * Plus d'informations sur la méthode render : https://fr.reactjs.org/docs/react-dom.html
+  * Plus d'information sur la création de composants : https://fr.reactjs.org/docs/components-and-props.html
+  *
+  * */
+
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <div>
+      <p>
+        Remplacez-moi par un composant sinon ça va barder.
+      </p>
+    </div>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>
