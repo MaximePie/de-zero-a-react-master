@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Entraînement à la manipulation de données</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .Produit {
+      border: solid 1px lightgray;
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 1rem;
+      height: 200px;
+      width: 200px;
+
+      display: inline-block;
+      /* https://www.alsacreations.com/article/lire/1209-display-inline-block.html */
+
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /**
+   *
+   *
+   * Notre panier est beau, mais on aimerait renseigner davantage d'informations sur chaque produit.
+   * Nous aimerions que chaque produit dispose de :
+   * - Un nom
+   * - Une quantité
+   * - Un prix
+   *
+   * Consignes :
+   *
+   * - Ici, légumes est devenu un tableau d'objets, de manière à ce que chaque légume dispose d'un prix et d'une
+   * quantité en plus du nom. Modifier tous les autres produits de manière à ce qu'ils aient la même structure que
+   * les légumes, et les afficher.
+   *
+   */
+  function PanierCourses() {
+
+    // const legumes = [
+    //   "Courgette",
+    //   "Carottes",
+    //   "Patates",
+    // ];
+
+    const legumes = [
+      {
+        name: "Courgette",
+        quantity: 5,
+        price: 4,
+      },
+      {
+        name: "Carottes",
+        quantity: 8,
+        price: 40,
+      },
+      {
+        name: "Patates",
+        quantity: 2,
+        price: 1,
+      },
+    ];
+
+    // Modifier fruits
+    const fruits = [
+      "Bananes",
+      "Oranges",
+    ];
+
+    // Modifier frais
+    const frais = [
+      "Lait",
+      "Yaourts",
+    ];
+
+    return (
+      <div>
+        <h1>Voici la liste de courses</h1>
+        <h2>Légumes</h2>
+        {legumes.map(function(legume) {
+          // Pour chaque légume présent dans le tableau listeLegumes,
+          // on affiche ses valeurs
+          return (
+            <div className="Produit">
+              <h3>{legume.name}</h3>
+              <p>Quantité : {legume.quantity} - Prix : {legume.price}</p>
+            </div>
+          )
+        })}
+
+        <h3>Fruits</h3>
+        <p>Note : Cette notation est la même que pour les légumes, mais compressée</p>
+        {fruits.map(petitFruit => <p>{petitFruit}</p>)}
+
+        <h3>Frais</h3>
+        <p>Afficher ici la liste des produits frais à l'aide de .map</p>
+        <h3>Épices</h3>
+        <p>Afficher ici la liste des produits de la catégorie épices</p>
+      </div>
+    )
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <PanierCourses/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

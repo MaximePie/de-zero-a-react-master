@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte des props</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .Button {
+      padding: 1rem;
+      height: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  function Consignes() {
+    return (
+      <div>
+        <div className="Exercice">
+          <h3>Exercice 1</h3>
+          <p>
+            Ici nous allons apprendre à comparer des données. Nous aimerions que notre bouton affiche un texte spécial
+            si on reçoit une props spéciale.
+          </p>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>Modifier le composant <code>PrimaryButton</code> de manière à ce que : </p>
+            <ul>
+              <li>
+                Si sa props <code>text</code> est égale à "Tanguy", alors afficher "Ah non, pas Tanguy", sinon
+                afficher la props text.
+              </li>
+            </ul>
+          </div>
+          <div className="Note">
+            <h4>Ressources</h4>
+            <p>
+              En savoir plus sur l'affectation conditionnelle :
+              <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else">
+                https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else
+              </a>
+            </p>
+            <p>
+              Comment savoir si deux chaînes de caractères sont les mêmes :
+              <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Equality_comparisons_and_sameness">
+                https://developer.mozilla.org/fr/docs/Web/JavaScript/Equality_comparisons_and_sameness
+              </a>
+            </p>
+          </div>
+          <div>
+            <PrimaryButton text="Tanguy"/> {/* Doit afficher "Ah non, pas Tanguy !"*/}
+            <PrimaryButton text="Tango"/> {/* Doit afficher "Tango" */}
+          </div>
+        </div>
+
+        <div className="Exercice">
+          <h3>Exercice 2</h3>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>Modifier le composant <code>Profile</code> de manière à ce que : </p>
+            <ul>
+              <li>
+                Si sa props <code>age</code> est supérieure à <code>18</code>, alors afficher "Interdit aux grandes
+                personnes ici !".
+              </li>
+            </ul>
+          </div>
+          <div className="Note">
+            <h4>Ressources</h4>
+            <p>Apprenez à comparer deux chiffres :
+              <a href="https://www.w3schools.com/js/js_comparisons.asp">
+                https://www.w3schools.com/js/js_comparisons.asp
+              </a>
+            </p>
+          </div>
+          <Profile age={18}/> {/* Doit afficher "Interdit aux grandes personnes !"*/}
+          <Profile age={5}/> {/* Doit afficher l'âge de la personne */}
+        </div>
+
+        <div className="Exercice">
+          <h2>Exercice 3</h2>
+          <p>Dans cet exercice nous allons voir comment modifier l'apparrence d'un composant en fonction de ses props</p>
+          <div className="Consignes">
+            <p>
+              Modifier le composant <code>SecondaryButton</code> de manière à ce que :
+            </p>
+            <ul>
+              <li>
+                Si sa props <code>estGrand</code> est égale à <code>"oui"</code>, alors il doit mesurer
+                <code>300px</code> de large.
+              </li>
+              <li>
+                Si sa props <code>estDanger</code> est égale à <code>"oui"</code>, alors son <code>className</code>
+                doit contenir la mention <code>estDanger</code>.
+              </li>
+            </ul>
+            <p>
+              Générer le bouton trois fois juste après la structure de cet exercice.
+              Chaque bouton doit afficher <code>SecondaryButton</code> avec une apparence différente.
+              Une fois en classique, une fois en grand, une fois en rouge.
+            </p>
+            <div className="Note">
+              <h4>Astuce</h4>
+              <p>à la fin de votre manipulation, votre <code>className</code> devrait ressembler à ceci : "SecondaryButton isDanger"</p>
+              <p>N'oubliez pas de bien observer le composant avant de vous lancer</p>
+            </div>
+
+            <div>
+              {/* GENEREZ LES BOUTONS ICI */}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  /**
+   * Modifiez ce bouton
+   */
+  function PrimaryButton(props) {
+
+    /**
+     * buttonText est une variable contenant la valeur qui sera affichée dans le bouton
+     */
+    let buttonText = '';
+    // Créer la structure conditionnelle ici.
+    // Si props.text est égal à "Tanguy",
+      // Alors le buttonText prend la valeur de "Ah non, pas Tanguy"
+    // Sinon, buttonText prend la valeur de props.text
+
+    return (
+      <button className="PrimaryButton">{buttonText}</button>
+    )
+  }
+
+  function Profile(props) {
+
+    // Envelopper le code dans des conditions
+
+    // Si props.age est supérieur ou égal à 18, on return ceci.
+    return (
+      <p>Interdit aux grandes personnes ici !</p>
+    );
+
+    // Sinon, on return ceci.
+    return (
+      <p>Bienvenue, vous avez {props.age} ans.</p>
+    )
+
+  }
+
+  function SecondaryButton(props) {
+    let className = "SecondaryButton";
+
+    // Si props.estDanger est égale à "oui"
+      // className prend la valeur "SecondaryButton isDanger"
+
+    // Si props.estGrand est égale à "oui"
+      // className prend la valeur "SecondaryButton isBig"
+
+    return <button className={className}>{props.text}</button>
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <Consignes/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

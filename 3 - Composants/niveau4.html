@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Entraînement à la manipulation de données</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    /* Ecrire le style ici */
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /**
+   * Affiche la liste des courses triées par leur catégorie (frais, légumes, fruits, et épices).
+   *
+   * Consignes :
+   * - En vous inspirant des exemples de Fruits et Légumes, afficher la liste des produits Frais
+   * - Créer une nouvelle valeur qui contiendra un tableau d'épices "Sucre", "Sel", "Poivre" et l'afficher
+   */
+  function PanierCourses() {
+
+    // legumes est un tableau, c'est-à-dire une structure complexe, qui contient plusieurs données du même format.
+    // Ici, "Courgette", "Carottes", et "Patates" sont des chaînes de caractères.
+    const legumes = [
+      "Courgette",
+      "Carottes",
+      "Patates",
+    ];
+
+    const fruits = [
+      "Bananes",
+      "Oranges",
+    ];
+
+    const frais = [
+      "Lait",
+      "Yaourts",
+    ];
+
+// Créer un nouveau tableau ici contenant les épices : Sucre, Sel, Poivre
+
+
+    // Et ici on les affiche
+    return (
+      <div>
+        <h2>Voici la liste de courses</h2>
+        <h3>Légumes</h3>
+        {legumes.map(function(legume) {
+          // Pour chaque légume présent dans le tableau listeLegumes,
+          // on affiche la valeur de ce légume.
+          return (
+            <p>{legume}</p>
+          )
+        })}
+
+        <h3>Fruits</h3>
+        <p>Note : Cette notation est la même que pour les légumes, mais compressée</p>
+        {fruits.map(petitFruit => <p>{petitFruit}</p>)}
+
+        <h3>Frais</h3>
+        <p>Afficher ici la liste des produits frais à l'aide de .map</p>
+        <h3>Épices</h3>
+        <p>Afficher ici la liste des produits de la catégorie épices</p>
+      </div>
+    )
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <PanierCourses/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

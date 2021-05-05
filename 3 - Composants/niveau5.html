@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Entraînement à la manipulation de données</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .Jukebox {
+      display: grid;
+      grid-template-columns: repeat(3, 300px);
+    }
+
+    .Jukebox__song {
+      border: solid 1px lightgray;
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 1rem;
+      height: 200px;
+
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      /* https://codepen.io/sdthornton/pen/wBZdXq */
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /**
+   *
+   * Consignes :
+   *
+   * - En vous inspirant de la constante bindingLight, afficher les informations de getLucky.
+   * - En vous inspirant des exemples précédents, créer une troisième constante contenant des informations sur
+   * votre chanson préférée, et affichez-la.
+   *
+   * Ressources :
+   *
+   * - Plus d'informations sur l'utilisation des objets en Javascript : https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/Basics
+   * - Afficher des objets en React : https://www.pluralsight.com/guides/accessing-data-through-props-with-known-key-names-in-reactjs
+   * - Affichage sous forme de liste en HTML (ul et li) : https://developer.mozilla.org/fr/docs/Web/HTML/Element/ul
+   */
+  function Jukebox() {
+
+    const blindingLights = {
+      name: "Blinding Lights",
+      author: "The Weeknd",
+      publishYear: 2020,
+    };
+
+    const getLucky = {
+      name: "Get Lucky",
+      author: "Daft Punk",
+      publishYear: 2013,
+    };
+
+    // Créer votre troisième objet ici :
+
+    return (
+      <div className="Jukebox">
+        <div className="Jukebox__song">
+          <h3>
+            {blindingLights.name}
+          </h3>
+          <ul>
+            <li>
+              Auteur : {blindingLights.author}
+            </li>
+            <li>
+              Date de parution : {blindingLights.publishYear}
+            </li>
+          </ul>
+        </div>
+        <div className="Jukebox__song">
+          {/* Afficher les informations sur getLucky ici*/}
+        </div>
+        <div className="Jukebox__song">
+          {/* Afficher les informations sur votre chanson ici*/}
+        </div>
+      </div>
+    )
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <h1>Liste des meilleures chansons de 2020</h1>
+        <Jukebox/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

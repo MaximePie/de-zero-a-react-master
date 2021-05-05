@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Entraînement à la création de composants</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    /* Ecrire le style ici */
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /**
+   * Consignes :
+   * - Modifiez le style du composant PrimaryButton de manière à ce que :
+   *    - Son texte s'affiche en blanc
+   *    - Sa couleur de fond (background-color) est bleue
+   *    - Sa bordure est nulle
+   *
+   * - Modifiez le comportement du composant PrimaryButton de manière à ce que
+   *    - Quand on clique sur le bouton, la fonction triggerAlert se déclenche.
+   *
+   * Ressources :
+   *
+   * - Couleur de fond : https://www.google.com/search?q=background-color+css&rlz=1C1CHBF_frFR884FR884&sxsrf=ALeKk0093Mna7t8qJRYKs8PlZgAVm5e7Pw%3A1620037841132&ei=0dCPYJvJB8mE1fAPkM-CsA0&oq=background-color+css&gs_lcp=Cgdnd3Mtd2l6EAMyAggAMgIIADIFCAAQywEyBQgAEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgUIABDLATIFCAAQywEyBQgAEMsBOgcIABBHELADOgQIABBDUHhY_gJgggRoAHADeACAAZ0BiAGGBJIBAzAuNJgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=gws-wiz&ved=0ahUKEwjb9augp63wAhVJQhUIHZCnANYQ4dUDCA4&uact=5
+   * - Retirer la bordure des boutons : https://www.google.com/search?q=remove+border+from+button&rlz=1C1CHBF_frFR884FR884&oq=remove+border+from+button&aqs=chrome..69i57j0l2j0i22i30l7.3886j0j9&sourceid=chrome&ie=UTF-8
+   * - Déclencher un morceau de code "au click" : https://fr.reactjs.org/docs/handling-events.html
+   *
+   */
+
+  function PrimaryButton() {
+    return (
+      <button className="Button">Super bouton React</button>
+    )
+
+    function triggerAlert() {
+      alert("Heyah");
+    }
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <PrimaryButton/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

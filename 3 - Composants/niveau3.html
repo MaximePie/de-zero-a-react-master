@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Entraînement à la manipulation de données</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    /* Ecrire le style ici */
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /**
+   * Consignes
+   *
+   * - Remplir le composant SecretData en se basant sur les commentaires qui sont écrits juste au dessus
+   * de sa signature
+   */
+
+
+  /**
+   * - Afficher la valeur de secretAge
+   * - Créer une nouvelle constante secretAnimal dont la valeur sera "Chat", et afficher sa valeur en dessous
+   * des autres.
+   *
+   */
+  function SecretData() {
+
+    // Ici on récupère nos données et on les prépare
+    const secretNumber = 5;
+    const secretAge = 18;
+
+    // Et ici on les affiche
+    return (
+      <div>
+        <p>Voici des informations ultra-confidentielles : </p>
+        <p>Numéro secret : {secretNumber}</p>
+        <p>Nombre secret : [Afficher l'age secret ici]</p>
+        <p>Animal Secret : [Afficher l'animal secret ici]</p>
+      </div>
+    )
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <SecretData/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

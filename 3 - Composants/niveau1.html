@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Premiers composants</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    /* Ecrire le style ici */
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /*
+  *
+  * Ici nous allons apprendre à créer nos premiers composants.
+  *
+  * CONSIGNES :
+  * - Créer un composant PrimaryButton en vous inspirant du composant WelcomeText.
+  * - Ce composant doit afficher un boutton <button> et contenir le texte "Cliquez-moi".
+  * - Lorsque l'on clique dessus, il ne doit rien se passer pour le moment.
+  * - Générer ce composant PrimaryButton dans le composant App
+  *
+  * Ressources :
+  * En savoir plus sur la création de composants en React : https://www.w3schools.com/react/react_components.asp#:~:text=Components%20are%20independent%20and%20reusable,will%20concentrate%20on%20Class%20components.
+  *
+  * */
+
+  /**
+   *
+   */
+  function WelcomeText() {
+    return (
+      <p>Bonjour, et bienvenue !</p>
+    )
+  }
+
+  function App() {
+
+    // Ici on écrit en Javascript
+
+    return (
+      <div className="App">
+        <WelcomeText/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

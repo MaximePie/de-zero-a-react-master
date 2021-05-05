@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte des props</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .Button {
+      padding: 1rem;
+      height: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  /**
+   * Désormais, les consignes seront écrites directement sur la page HTML dans un composant Consignes
+   */
+
+  function Consignes(props) {
+    return (
+      <div className="Exercice">
+        <h3>Exercice 1</h3>
+        <p>Dans cette exercice nous allons découvrir les <code>props</code>.</p>
+        <p>Ici, notre composant <code>Title</code> reçoit une props <code>titleText</code>.</p>
+        <p>Notre composant <code>Subtitle</code> reçoit une props <code>text</code> et une props <code>userName</code></p>
+        <div className="Consignes">
+          <h4>Consignes</h4>
+          <ul>
+            <li>
+              Modifier la props passée à <code>Title</code> de manière à ce qu'il affiche "Ceci est la page d'accueil",
+              mais sans modifier le composant Title
+            </li>
+            <li>
+              Modifier le composant <code>Subtitle</code> de manière à ce qu'il affiche "Bienvenue parmi nous, Charly".
+            </li>
+            <li>
+              Générer une deuxième fois le composant <code>Subtitle</code> de manière à ce qu'il affiche
+              "Bonjour, et bienvenue Gwendoline".
+            </li>
+            <li>
+              Modifier le composant <code>Button</code> de manière à ce qu'il prenne une props <code>text</code>,
+              et afficher ce texte à l'intérieur du bouton.
+            </li>
+          </ul>
+        </div>
+        <div className="Note">
+          <h4>Ressources</h4>1
+          <p>
+            Plus d'informations sur l'utilisation des props
+            <a href="https://fr.reactjs.org/docs/components-and-props.html">
+              {` ici`}
+            </a>
+          </p>
+        </div>
+        {props.children}
+      </div>
+    )
+  }
+
+  /**
+   * Modifiez ce bouton
+   */
+  function Button() {
+    return (
+      <button className="Button">Changez-moi</button>
+    )
+  }
+
+  /**
+   * Ce composant ne devrait pas être modifié. Modifiez plutôt le composant App !
+   */
+  function Title(props) {
+    const text = props.titleText;
+    return <h1>{text}</h1>
+  }
+
+  function Subtitle(props) {
+    const text = props.text;
+    return (
+      <h2 className="Subtitle">{text}</h2>
+    )
+  }
+
+  function App() {
+    return (
+      <div className="App">
+        <Consignes>
+          <Title titleText="Page d'accueil"/>
+          <Subtitle text="Bienvenue parmi nous !" userName="Charly"/>
+          <Button/>
+        </Consignes>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>
