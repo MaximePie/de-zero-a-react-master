@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte des props</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .SecondaryButton {
+      width: 150px;
+    }
+
+    .isBig {
+      width: 300px;
+    }
+
+    .isWarning {
+      background-color: #d75b3f;
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  function Consignes() {
+    return (
+      <div>
+        <div className="Exercice">
+          <h3>Exercice 1</h3>
+          <p>Dans cet exercice nous allons découvrir une meilleure façon d'écrire "oui" ou "non"</p>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>Modifiez le composant <code>SecondaryButton</code> de manière à ce que : </p>
+            <ul>
+              <li>
+                Le composant prenne deux props <code>isBig</code> et <code>isWarning</code> qui sont
+                soit égales à <code>true</code>, soit égales à <code>false</code>.
+              </li>
+              <li>
+                Si <code>isBig</code> est égal à <code>true</code>, alors sa <code>className</code> sera égale à
+                <code>SecondaryButton isBig</code>
+              </li>
+              <li>
+                Si <code>isWarning</code> est égal à <code>true</code>, alors sa <code>className</code> sera égale à
+                <code>SecondaryButton isWarning</code>
+              </li>
+            </ul>
+          </div>
+          <div class="Note">
+            <h4>Astuces</h4>
+            <p>Il est possible de gagner en lisibilité en collant deux chaînes de caractères l'une à l'autre</p>
+            <p><code>let className = "Pizza"</code></p>
+            <p><code>className = className + " 4 fromages"</code></p>
+            <p>Il est possible de gagner encore de la place en l'écrivant comme ceci : </p>
+            <p><code>className += " 4 fromages".</code></p>
+          </div>
+          <div className="Note">
+            <h4>Ressources</h4>
+            <p>
+              En savoir plus sur la concaténation de chaînes de caractères :
+              <a href="https://masteringjs.io/tutorials/fundamentals/string-concat">
+                https://masteringjs.io/tutorials/fundamentals/string-concat
+              </a>
+            </p>
+            <p>
+              En savoir plus sur les booléens :
+              <a href="https://www.w3schools.com/js/js_booleans.asp">
+                https://www.w3schools.com/js/js_booleans.asp
+              </a>
+            </p>
+            <p>
+              En savoir plus sur les boléens dans les conditions :
+              <a href="https://stackoverflow.com/questions/15393935/boolean-in-an-if-statement/15394481">
+                https://stackoverflow.com/questions/15393935/boolean-in-an-if-statement/15394481
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div className="Exercice">
+          <h3>Exercice 2</h3>
+          <p>Dans cet exercice nous allons voir comment utiliser plusieurs conditions de suite</p>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>
+              Le composant <code>Song</code> reçoit trois <code>props</code> :
+              <code>releaseYear</code>, <code>popularity</code> et <code>title</code>
+            </p>
+            <p>Modifier le composant <code>Song</code> de manière à ce que : </p>
+            <ul>
+              <li>
+                Si <code>releaseYear</code> est supérieure à <code>2010</code> ET QUE sa <code>popularity</code> est
+                au dessus de <code>10000</code>, alors on affiche le nom de la chanson.
+              </li>
+              <li>
+                Si <code>releaseYear</code> est n'est pas supérieure à <code>2010</code> OU QUE sa
+                <code>popularity</code> est inférieure à <code>10000</code>,
+                alors on affiche un message "La chanson ne satisfait pas les conditions".
+              </li>
+            </ul>
+          </div>
+          <div className="Note">
+            <h4>Ressources</h4>
+            <p>
+              En savoir plus sur les conditions multiples :
+              <a href="https://makecode.microbit.org/courses/blocks-to-javascript/complex-conditionals">
+                https://makecode.microbit.org/courses/blocks-to-javascript/complex-conditionals
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div className="Exercice">
+          <h3>Exercice 3</h3>
+          <p>Un autre exercice sur la gestion des conditions multiples, en manipulant des objets.</p>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>Le composant <code>Réservation</code> reçoit une props <code>user</code>.</p>
+            <p><code>user</code> est un objet contenant des informations sur l'âge, le nom, et s'il a été vacciné ou non.</p>
+            <p>Sa déclaration se trouve dans le composant <code>App</code>.</p>
+            <ul>
+              <li>
+                Remplir le composant <code>Reservation</code>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+
+  function SecondaryButton(props) {
+    let className = "SecondaryButton";
+
+    // Si props.isDanger est égale à true
+    // className prend la valeur "SecondaryButton isDanger"
+
+    // Si props.isBig est égale à false
+    // className prend la valeur "SecondaryButton isBig"
+
+    return <button className={className}>{props.text}</button>
+  }
+
+  function Song(props) {
+    return null;
+  }
+
+  /**
+   *
+   * Ce composant affiche les informations (nom, age, état de vaccination) de l'utilisateur s'il n'est pas à risque.
+   * L'utilisateur est "à risque" si :
+   * - Il a plus de 65 ans
+   * - Il n'est pas vacciné.
+   *
+   * Si l'utilisateur est à risque, alors on affiche un message "L'utilisateur est à risque. On ne prend pas le risque."
+   *
+   */
+  function Reservation(props) {
+    const user = props.user;
+    return null;
+  }
+
+  function App() {
+
+    const germaine = {
+      name: "Germaine de la truite",
+      age: 80,
+      vaccine: false,
+    };
+
+    const marco = {
+      name: "Marco",
+      age: 25,
+      vaccine: false,
+    }
+
+    const camille = {
+      name: "Camille",
+      age: 95,
+      vaccine: true,
+    }
+
+    return (
+      <div className="App">
+        <div>
+          <h3>Exercice 1</h3>
+          <SecondaryButton isBig={true} isDanger={false} text="Grand, sans danger"/>
+          <SecondaryButton isBig={false} isDanger={false} text="Classique"/>
+          <SecondaryButton isBig={false} isDanger={true} text="Danger"/>
+        </div>
+        <div>
+          <h3>Exercice 2</h3>
+          <Song releaseYear={2009} popularity={45000} title="Les sandwichs Pinwheel sont en forme de rouleaux"/>
+          <Song releaseYear={2015} popularity={10} title="Les sandwichs ont été inventés par Lord Sandwich"/>
+          <Song releaseYear={2019} popularity={68000} title="31% de calories d'un sandwich de fast food vient de la mayonnaise"/>
+        </div>
+        <div>
+          <h3>Exercice 3</h3>
+          <Reservation user={germaine}/>
+          <Reservation user={marco}/>
+          <Reservation user={camille}/>
+        </div>
+        <Consignes/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

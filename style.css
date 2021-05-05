@@ -25,6 +25,10 @@
     color: #d75b3f;
 }
 
+.App {
+    padding: 1rem;
+}
+
 
 body {
     height: 100vh;
