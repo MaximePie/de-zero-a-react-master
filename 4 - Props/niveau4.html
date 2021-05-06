@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte des props</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .ListeEleves {
+      border: solid 1px lightgray;
+      border-radius: 4px;
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  function Consignes() {
+    return (
+      <div>
+        <div className="Exercice">
+          <h2>Exercice 1</h2>
+          <p>Il est possible de générer des composants à l'intérieur d'une structure <code>.map</code> ! </p>
+
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>En vous inspirant de l'exemple avec les <code>ListeEleves</code>, créer un composant
+              <code>ListeDeCourses</code> qui reçoit en <code>props</code> un tableau de produits.
+            </p>
+            <p>
+              Le tableau contenant les données se situe dans le composant <code>App</code>.
+            </p>
+            <p>
+              Créer un composant <code>DetailsArticle</code>  qui recevra comme <code>props</code> l'article en question.
+              Ce composant affichera les détails de l'article, à savoir son nom, sa quantité, et son prix.
+            </p>
+            <p>
+              Modifier le composant <code>ListeDeCourses</code> de manière à ce que :
+            </p>
+            <ul>
+              <li>
+                Pour chaque <code>article</code> présent dans la liste des articles reçue en props, on génère un
+                composant <code>DetailsArticle</code>, et on lui envoie l'<code>article</code> en props.
+              </li>
+            </ul>
+          </div>
+          <div className="Note">
+            <h3>Astuces</h3>
+            <p>
+              Pour savoir quelles props passer, il suffit de se poser la question : "Qu'est-ce qui fait la différence
+              entre un <code>Eleve</code> et un autre ?
+              Son nom, sa classe, et sa moyenne ?  Il s'agit des trois props que nous aimerions lui faire passer.
+              mais pour économiser notre code, nous pouvons tout mettre dans un objet <code>user</code>, et lui faire
+              passer directement en une seule props.
+            </p>
+            <p>
+              Ne vous laissez pas impressionner, il ne s'agit que de choses que vous connaissez déjà, mais que l'on
+              emboîte ensemble !
+            </p>
+            <p>
+              Si cela devient trop difficile, essayez de le faire en premier lieu avec des instructions plus simples.
+            </p>
+          </div>
+        </div>
+        <div className="Exercice">
+          <h3>Exercice 2</h3>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>
+              Créer un composant <code>ListePays</code>. Le composant prendra en <code>props</code> une liste de pays
+              qui est déclarée dans le composant <code>App</code>.
+            </p>
+            <p>
+              Créer un deuxième composant <code>Pays</code> qui permette d'afficher les informations du pays reçu
+              en props.
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  function AffichageEleve(props) {
+    const sujet = props.sujet;
+
+    return (
+      <div className="Eleve">
+        <h3>{sujet.name}</h3>
+        <p>Moyenne : {sujet.average}</p>
+        <p>Classe : {sujet.class}</p>
+      </div>
+    )
+  }
+
+
+  function ListeEleves(props) {
+    const eleves = props.eleves;
+
+    return (
+      <div className="ListeEleves">
+        <h2>Liste des élèves</h2>
+        {eleves.map(function(eleve) {
+          return (
+            <AffichageEleve sujet={eleve}/>
+          )
+        })}
+      </div>
+    )
+  }
+
+  function App() {
+
+    const eleves = [
+      {
+        name: "Conrad",
+        average: 5,
+        class: "5 ème A",
+      },
+      {
+        name: "Eirika",
+        average: 18,
+        class: "5 ème C",
+      },
+      {
+        name: "Luth",
+        average: 2,
+        class: "5 ème B",
+      },
+      {
+        name: "Seth",
+        average: 17,
+        class: "5 ème B",
+      },
+    ];
+
+    const articles = [
+      {
+        category: "Légume",
+        name: "Courgette",
+        quantity: 5,
+        price: 4,
+      },
+      {
+        category: "Légume",
+        name: "Carottes",
+        quantity: 8,
+        price: 40,
+      },
+      {
+        category: "Légume",
+        name: "Patates",
+        quantity: 2,
+        price: 1,
+      },
+      {
+        category: "Fruits",
+        name: "Bananes",
+        quantity: 55,
+        price: 55,
+      },
+      {
+        category: "Fruits",
+        name: "Oranges",
+        quantity: 2,
+        price: 8,
+      },
+      {
+        category: "Frais",
+        name: "Lait",
+        quantity: 6,
+        price: 5,
+      },
+      {
+        category: "Epices",
+        name: "Sucre",
+        quantity: 1,
+        price: 1,
+      },
+      {
+        category: "Epices",
+        name: "Sel",
+        quantity: 2,
+        price: 4,
+      },
+      {
+        category: "Epices",
+        name: "Poivre",
+        quantity: 7,
+        price: 2.8,
+      },
+    ];
+
+    const pays = [
+      {
+        name: "Ethopie",
+        population: "110 Millions",
+        language: "Amharique",
+      },
+      {
+        name: "Nouvelle Zélande",
+        population: "5 millions",
+        language: "Anglais",
+      },
+      {
+        name: "Roumanie",
+        population: "19 millions",
+        language: "Roumain",
+      }
+    ];
+
+    return (
+      <div>
+        <Consignes/>
+        <ListeEleves eleves={eleves}/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Découverte des props</title>
+
+  <!-- Library -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel => compilation du JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+  function Consignes() {
+    return (
+      <div>
+        <div className="Exercice">
+          <h3>Exercice 1</h3>
+          <p>Ici nous allons voir comment faire passer des paramètres aux fonctions.</p>
+          <div className="Consignes">
+            <h4>Consignes</h4>
+            <p>En vous inspirant de la fonction <code>say</code>, remplir la fonction <code>triggerAlert</code>.</p>
+            <p>Remplir le composant <code>Salon</code></p>
+            <p>Remplir le composant <code>Cuisine</code></p>
+          </div>
+          <div className="Note">
+            <h4>Ressources</h4>
+            <p>
+              Plus d'informations sur les paramètres de fonction :
+              <a href="https://www.w3schools.com/js/js_function_parameters.asp">
+                https://www.w3schools.com/js/js_function_parameters.asp
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  /**
+   *
+   * Consignes
+   *
+   * Affiche un texte "Ici c'est le salon"
+   * Affiche deux boutons :
+   * Un bouton "COUCOU du salon" qui déclenche la méthode onAlert reçue en props, en envoyant
+   * comme paramètre : "Coucou du salon"
+   * Un bouton "Intrus du salon" qui déclenche la méthode onAlert reçue en props, en envoyant
+   * comme paramètre : "Intrus du salon",
+   *
+   */
+  function Salon(props) {
+    const style = {
+      border: "solid 1px lightgray",
+      borderRadius: "4px",
+      padding: "1rem",
+    };
+
+    return (
+      <div style={style}>
+        <h2>Ici c'est le salon</h2>
+      </div>
+    )
+  }
+
+  /**
+   * Le composant cuisine affiche un texte "Ici c'est la cuisine".
+   * Elle affiche également :
+   * Un bouton "Il y a un coucou dans la cuisine" qui déclenche la méthode onAlert reçue en props, en envoyant
+   * comme paramètre : "Il y a un coucou dans la cuisine"
+   * Un bouton "Il y a des intrus dans la cuisine" qui déclenche la méthode onAlert reçue en props, en envoyant
+   * comme paramètre : "Il y a des intrus dans la cuisine",
+   */
+  function Cuisine() {
+
+  }
+
+  function Home() {
+    return (
+      <div style={{border: "solid 1px lightgray", borderRadius: "4px", padding: "1rem"}}>
+        <h1>Ici, c'est la maison</h1>
+        <button onClick={() => say("Bonjour")}>Dire "Bonjour"</button>
+        <button onClick={() => say("Au revoir")}>Dire "Au revoir"</button>
+        <button>Déclencher l'alarme "COUCOU"</button>
+        <button>Déclencher l'alarme "INTRUS"</button>
+        <Salon onAlert={triggerAlert}/>
+      </div>
+    )
+
+    /**
+     * Affiche une alerte "Bonjour"
+     * Cette fonction sert d'exemple
+     */
+    function say(text) {
+      alert(text);
+    }
+
+    /**
+     * Cette fonction prend en paramètre un text
+     * et l'affiche dans une alerte
+     */
+    function triggerAlert() {
+
+    }
+  }
+
+  function App() {
+    return (
+      <div>
+        <Consignes/>
+        <Home/>
+      </div>
+    )
+  }
+
+  // Rendu dans le DOM
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+
+</html>
